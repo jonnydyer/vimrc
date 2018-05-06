@@ -11,31 +11,65 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
 
-Bundle 'Valloric/YouCompleteMe'
+" Add all your plugins here (note older versions of Vundle used Bundle instead of Plugin)
+Plugin 'klen/python-mode'
+" Plugin 'altercation/vim-colors-solarized'
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'scrooloose/nerdtree'
+Plugin 'majutsushi/tagbar'
+
+Plugin 'vim-scripts/VisIncr'
+
+
+" Plugin ack-vim
+" Plugin 'mileszs/ack.vim'    
 
 Plugin 'scrooloose/syntastic'
-
-Plugin 'nvie/vim-flake8'
-
-Plugin 'scrooloose/nerdtree'
 
 Plugin 'kien/ctrlp.vim'
 
 Plugin 'altercation/vim-colors-solarized'
+set backspace=indent,eol,start
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
 
-syntax on 
-let python_highlight_all=1
+" enable syntax highlighting
+syntax enable
 
-set hlsearch
-set showmatch
+" show line numbers
+set number
+
+" set tabs to have 4 spaces
 set ts=4
-filetype indent plugin on
-set modeline
-set tabstop=4 expandtab shiftwidth=4 softtabstop=4
+
+" indent when moving to the next line while writing code
+set autoindent
+
+" expand tabs into spaces
+set expandtab
+
+" when using the >> or << commands, shift lines by 4 spaces
+set shiftwidth=4
+
+" show a visual line under the cursor's current line
+set cursorline
+
+" show the matching part of the pair for [] {} and ()
+set showmatch
+
+" search related
+set incsearch
+set hlsearch
+
+" enable all Python syntax highlighting features
+let python_highlight_all = 1
+
+" Some YouCompleteMe setting"
+let g:ycm_autoclose_preview_window_after_completion=1
+map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
+
 
 au BufNewFile,BufRead *.py
     \ set tabstop=4 |
@@ -46,12 +80,16 @@ au BufNewFile,BufRead *.py
     \ set autoindent |
     \ set fileformat=unix
 
-
+" Color scheme
 set background=dark
+let g:solarized_contrast="high"
+" colorscheme crayon
 colorscheme solarized
-
+" Escpae split navigation
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
+map <C-m> :TagbarToggle<CR>
+map <C-n> :NERDTreeToggle<CR>
