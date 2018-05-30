@@ -17,7 +17,7 @@ Plugin 'klen/python-mode'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'scrooloose/nerdtree'
 Plugin 'majutsushi/tagbar'
-
+Plugin 'vim-airline/vim-airline'
 Plugin 'vim-scripts/VisIncr'
 
 
