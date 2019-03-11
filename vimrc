@@ -24,7 +24,16 @@ Plugin 'vim-scripts/VisIncr'
 " Plugin ack-vim
 " Plugin 'mileszs/ack.vim'    
 
-Plugin 'scrooloose/syntastic'
+" Plugin 'scrooloose/syntastic'
+"
+"set statusline+=%#warningmsg#
+"set statusline+=%{SyntasticStatuslineFlag()}
+"set statusline+=%*
+"
+"let g:syntastic_always_populate_loc_list = 1
+"let g:syntastic_auto_loc_list = 1
+"let g:syntastic_check_on_open = 1
+"let g:syntastic_check_on_wq = 0
 
 Plugin 'kien/ctrlp.vim'
 
@@ -93,3 +102,5 @@ nnoremap <C-H> <C-W><C-H>
 
 map <C-m> :TagbarToggle<CR>
 map <C-n> :NERDTreeToggle<CR>
+
+nnoremap <buffer> <F9> :exec '!python' shellescape(@%, 1)<cr>
