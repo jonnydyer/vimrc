@@ -1,3 +1,6 @@
+if has('python3')
+   echo 'Python 3'
+endif
 set nocompatible              " required
 filetype off                  " required
 
@@ -19,6 +22,7 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'majutsushi/tagbar'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-scripts/VisIncr'
+Plugin 'brgmnn/vim-opencl'
 
 
 " Plugin ack-vim
@@ -103,4 +107,4 @@ nnoremap <C-H> <C-W><C-H>
 map <C-m> :TagbarToggle<CR>
 map <C-n> :NERDTreeToggle<CR>
 
-nnoremap <buffer> <F9> :exec '!python' shellescape(@%, 1)<cr>
+nnoremap <buffer> <F9> :exec '!python3' shellescape(@%, 1)<cr>
