@@ -1,6 +1,3 @@
-if has('python3')
-   echo 'Python 3'
-endif
 set nocompatible              " required
 filetype off                  " required
 
@@ -10,20 +7,19 @@ call vundle#begin()
 
 " alternatively, pass a path where Vundle should install plugins
 "call vundle#begin('~/some/path/here')
+ 
 
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
 
 " Add all your plugins here (note older versions of Vundle used Bundle instead of Plugin)
-Plugin 'klen/python-mode'
 " Plugin 'altercation/vim-colors-solarized'
-Plugin 'Valloric/YouCompleteMe'
+" Plugin 'Valloric/YouCompleteMe'
 Plugin 'scrooloose/nerdtree'
 Plugin 'majutsushi/tagbar'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-scripts/VisIncr'
 Plugin 'brgmnn/vim-opencl'
-
 
 " Plugin ack-vim
 " Plugin 'mileszs/ack.vim'    
@@ -46,6 +42,13 @@ set backspace=indent,eol,start
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
+
+" Pathogen load
+filetype off
+
+call pathogen#infect()
+call pathogen#helptags()
+
 filetype plugin indent on    " required
 
 " enable syntax highlighting
@@ -78,11 +81,6 @@ set hlsearch
 
 " enable all Python syntax highlighting features
 let python_highlight_all = 1
-
-" Some YouCompleteMe setting"
-let g:ycm_autoclose_preview_window_after_completion=1
-map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
-
 
 au BufNewFile,BufRead *.py
     \ set tabstop=4 |
